@@ -5,3 +5,4 @@ build/
 # ignore files with the following filename extension
 *.tmp
 /.nb-gradle/
+/viikko1/tehtavat14-16/NhlStatistics1/.nb-gradle/
