@@ -1,0 +1,7 @@
+# ignore these directories
+build/
+.gradle/
+
+# ignore files with the following filename extension
+*.tmp
+/.nb-gradle/
