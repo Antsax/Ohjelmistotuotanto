@@ -1,6 +1,9 @@
 package ohtu;
 
 import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
+
 import com.google.gson.Gson;
 import org.apache.http.client.fluent.Request;
 
@@ -10,13 +13,11 @@ public class Main {
 
         String bodyText = Request.Get(url).execute().returnContent().asString();
 
-        System.out.println("json-muotoinen data:");
-        System.out.println( bodyText );
-
         Gson mapper = new Gson();
         Player[] players = mapper.fromJson(bodyText, Player[].class);
+        Arrays.sort(players);
 
-        System.out.println("Oliot:");
+        System.out.println("Players from FIN " + new Date(System.currentTimeMillis()));
         for (Player player : players) {
             System.out.println(player);
         }
