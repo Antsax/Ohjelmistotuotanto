@@ -97,6 +97,22 @@ public class Stepdefs {
         createUser(username, password, passwordConfirmation);
     }
 
+    @Given("user with username {string} with password {string} is successfully created")
+    public void userWithValidUserAndPasswordIsCreated(String username, String password) throws Throwable {
+        newUserIsSelected();
+        createUser(username, password, password);
+        WebElement signout = driver.findElement(By.linkText("continue to application mainpage"));
+        signout.click();
+        signout = driver.findElement(By.linkText("logout"));
+        signout.click();
+    }
+
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void userWithUsernameAndPasswordIsTriedToBeCreated(String username, String password) throws Throwable {
+        newUserIsSelected();
+        createUser(username, password, password);
+    }
+
     @After
     public void tearDown(){
         driver.quit();
