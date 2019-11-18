@@ -6,6 +6,9 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.common.base.Throwables;
+
 import static org.junit.Assert.*;
 import ohtu.io.*;
 import ohtu.data_access.*;
@@ -43,6 +46,21 @@ public class Stepdefs {
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
-    }    
+    }
+    
+    @Given("^command new is selected$")
+    public void commandNewSelected() throws Throwable {
+        inputLines.add("new");
+    }
+
+    @Given("user {string} with password {string} is created")
+    public void validUserCreated(String user, String password) throws Throwable {
+        inputLines.add("new");
+        inputLines.add(user);
+        inputLines.add(password);
+        io = new StubIO(inputLines); 
+        app = new App(io, auth);
+        app.run();
+        }
 
 }
