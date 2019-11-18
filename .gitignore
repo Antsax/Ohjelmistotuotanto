@@ -6,3 +6,6 @@ build/
 *.tmp
 /.nb-gradle/
 /viikko1/tehtavat14-16/NhlStatistics1/.nb-gradle/
+/viikko2/tehtavat7-12/Verkkokauppa1/.nb-gradle/
+
+/viikko3/WebLogin/salasanat.txt
